@@ -20,5 +20,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "DemoKotlin"
-include(":app")
- 
+include(":launch_mode")
