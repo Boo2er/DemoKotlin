@@ -7,12 +7,43 @@
     android:layout_height="match_parent"
     tools:context=".third.ThirdActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/btn_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This Is Third Activity!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Turn to First Activity?"
+        app:layout_constraintBottom_toTopOf="@+id/tv_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This Is Third Activity!"
+        app:layout_constraintBottom_toTopOf="@+id/btn_fourth"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_first" />
+
+    <Button
+        android:id="@+id/btn_fourth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Turn to Fourth Activity?"
+        app:layout_constraintBottom_toTopOf="@+id/btn_main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <Button
+        android:id="@+id/btn_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Turn to Main Activity?"
+        app:layout_constraintTop_toBottomOf="@+id/btn_fourth"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

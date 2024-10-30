@@ -1,14 +1,20 @@
 package com.boo.demokotlin.third
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.boo.demokotlin.MainActivity
 import com.boo.demokotlin.R
+import com.boo.demokotlin.first.FirstActivity
+import com.boo.demokotlin.fourth.FourthActivity
 
-class ThirdActivity : AppCompatActivity() {
+class ThirdActivity : AppCompatActivity(), View.OnClickListener {
     private val TAG = "ThirdActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +27,14 @@ class ThirdActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        //按钮监听实现
+        val btnFirst = findViewById<Button>(R.id.btn_first)
+        btnFirst.setOnClickListener(this)
+        val btnMain = findViewById<Button>(R.id.btn_main)
+        btnMain.setOnClickListener(this)
+        val btnFourth = findViewById<Button>(R.id.btn_fourth)
+        btnFourth.setOnClickListener(this)
     }
 
     override fun onStart() {
@@ -51,6 +65,29 @@ class ThirdActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d(TAG, "onDestroy: ")
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.btn_first -> {
+                val intent = Intent(this, FirstActivity::class.java)
+                startActivity(intent)
+            }
+
+            R.id.btn_main -> {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+
+            R.id.btn_fourth -> {
+                val intent = Intent(this, FourthActivity::class.java)
+                startActivity(intent)
+            }
+
+            else -> {
+                TODO("Not yet implemented")
+            }
+        }
     }
 
 }

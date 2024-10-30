@@ -22,10 +22,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Turn to second Activity?"
-        app:layout_constraintBottom_toTopOf="@+id/btn_third"
+        app:layout_constraintBottom_toTopOf="@+id/tv_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_first" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This Is Main Activity!"
+        app:layout_constraintBottom_toTopOf="@+id/btn_third"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_second" />
 
     <Button
         android:id="@+id/btn_third"
@@ -35,7 +45,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btn_fourth"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_second" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
     <Button
         android:id="@+id/btn_fourth"
