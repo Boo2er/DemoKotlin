@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_uia_white"
+    tools:context=".ui_a.activity.MusicListActivity">
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/uia_def_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:gravity="center_vertical"
+        android:text="@string/music_list"
+        app:layout_constraintBottom_toBottomOf="@+id/imb_set"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imb_set" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/color_uia_green"
+        app:layout_constraintEnd_toEndOf="@+id/tv_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <ImageButton
+        android:id="@+id/imb_lope"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_envelope"
+        app:layout_constraintBottom_toBottomOf="@+id/imb_set"
+        app:layout_constraintEnd_toStartOf="@+id/imb_set"
+        app:layout_constraintTop_toTopOf="@id/imb_set" />
+
+    <ImageButton
+        android:id="@+id/imb_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="10dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_settings"
+        app:layout_constraintBottom_toTopOf="@+id/et_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_search"
+        style="@style/uia_radio_btn"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_search"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:hint="@string/search"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        app:drawableStartCompat="@drawable/ic_search"
+        app:layout_constraintEnd_toStartOf="@+id/imb_test"
+        app:layout_constraintHorizontal_weight="5"
+        app:layout_constraintStart_toStartOf="@+id/tv_title"
+        app:layout_constraintTop_toBottomOf="@+id/imb_set" />
+
+    <ImageButton
+        android:id="@+id/imb_test"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_clipboard"
+        app:layout_constraintBottom_toBottomOf="@+id/et_search"
+        app:layout_constraintEnd_toEndOf="@+id/imb_set"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/et_search"
+        app:layout_constraintTop_toTopOf="@+id/et_search" />
+
+    <View
+        android:id="@+id/view_control"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/bg_control"
+        app:layout_constraintEnd_toEndOf="@+id/imb_set"
+        app:layout_constraintStart_toStartOf="@+id/tv_title"
+        app:layout_constraintTop_toBottomOf="@+id/et_search" />
+
+    <RadioGroup
+        android:id="@+id/rg_type"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:checkedButton="@id/rb_music"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/view_control"
+        app:layout_constraintEnd_toStartOf="@id/btn_scan"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toStartOf="@+id/view_control"
+        app:layout_constraintTop_toTopOf="@+id/view_control">
+
+        <RadioButton
+            android:id="@+id/rb_music"
+            style="@style/uia_radio_btn"
+            android:drawableTop="@drawable/ic_music"
+            android:text="@string/music" />
+
+        <RadioButton
+            android:id="@+id/rb_folder"
+            style="@style/uia_radio_btn"
+            android:drawableTop="@drawable/ic_folder"
+            android:text="@string/folder" />
+
+        <RadioButton
+            android:id="@+id/rb_collect"
+            style="@style/uia_radio_btn"
+            android:drawableTop="@drawable/ic_collect"
+            android:text="@string/collect" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_scan"
+        style="@style/uia_radio_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:drawableTop="@drawable/ic_refresh"
+        android:text="@string/scan"
+        app:layout_constraintBottom_toBottomOf="@+id/rg_type"
+        app:layout_constraintEnd_toEndOf="@+id/view_control"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/rg_type"
+        app:layout_constraintTop_toTopOf="@+id/rg_type" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_music"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/cl_bottom"
+        app:layout_constraintEnd_toEndOf="@+id/view_control"
+        app:layout_constraintStart_toStartOf="@+id/view_control"
+        app:layout_constraintTop_toBottomOf="@+id/view_control"
+        tools:paddingEnd="20dp"
+        tools:paddingStart="20dp"
+        tools:visibility="visible" />
+
+    <ExpandableListView
+        android:id="@+id/elv_music"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/cl_bottom"
+        app:layout_constraintEnd_toEndOf="@+id/view_control"
+        app:layout_constraintStart_toStartOf="@+id/view_control"
+        app:layout_constraintTop_toBottomOf="@+id/view_control"
+        tools:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_no_file"
+        style="@style/uia_def_text"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/no_file"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/cl_bottom"
+        app:layout_constraintEnd_toEndOf="@+id/view_control"
+        app:layout_constraintStart_toStartOf="@+id/view_control"
+        app:layout_constraintTop_toBottomOf="@+id/view_control"
+        app:layout_constraintVertical_bias="0.0"
+        tools:visibility="gone" />
+
+    <View
+        android:id="@+id/cl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="@color/color_uia_opposite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_title" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_play"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/bg_play"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_album"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_album"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_album" />
+
+        <TextView
+            android:id="@+id/tv_music_name"
+            style="@style/uia_def_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:ellipsize="marquee"
+            android:text="@string/unknown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iv_play"
+            app:layout_constraintStart_toEndOf="@+id/iv_album"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/unknown" />
+
+        <ImageView
+            android:id="@+id/iv_play"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="30dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_play1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iv_list"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_play1" />
+
+        <ImageView
+            android:id="@+id/iv_list"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_list1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

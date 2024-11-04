@@ -7,8 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.boo.app.music.MusicListActivity
-import com.boo.app.music.MusicPlayActivity
+import com.boo.app.ui_a.activity.MusicListActivity
+import com.boo.app.ui_a.activity.MusicPlayActivity
 import com.boo.app.utils.SpfUtils
 import com.boo.app.utils.UiUtils
 

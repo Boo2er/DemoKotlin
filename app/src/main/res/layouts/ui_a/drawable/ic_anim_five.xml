@@ -1,0 +1,28 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp"
+    android:height="20dp"
+    android:autoMirrored="true"
+    android:viewportWidth="1024"
+    android:viewportHeight="1024">
+
+    <path
+        android:fillColor="@color/color_uia_green"
+        android:pathData="M672,218.3a40,40 0,0 1,40 40v507.3a40,40 0,0 1,-80.1 0V258.3a40,40 0,0 1,40 -40z" />
+
+    <path
+        android:fillColor="@color/color_uia_green"
+        android:pathData="M512.4,325.1a40,40 0,0 1,40 40v293.5a40,40 0,1 1,-80.1 0v-293.5a40,40 0,0 1,40 -40z" />
+
+    <path
+        android:fillColor="@color/color_uia_green"
+        android:pathData="M832.2,325.1a40.1,40.1 0,0 1,40 40v293.5a40,40 0,0 1,-80.1 0v-293.5a40.1,40.1 0,0 1,40 -40z" />
+
+    <path
+        android:fillColor="@color/color_uia_green"
+        android:pathData="M351.4,431.9a40,40 0,0 1,40 40v80.1a40,40 0,1 1,-80.1 0v-80.1a40,40 0,0 1,40 -40z" />
+
+    <path
+        android:fillColor="@color/color_uia_green"
+        android:pathData="M191.4,431.9a40,40 0,0 1,40 40v80.1a40,40 0,1 1,-80.1 0v-80.1a40,40 0,0 1,40 -40z" />
+
+</vector>

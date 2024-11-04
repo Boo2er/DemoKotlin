@@ -17,6 +17,10 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    sourceSets.getByName("main") {
+        res.srcDirs("src/main/res/layouts/ui_a", "src/main/res/layouts/ui_b")
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -45,4 +49,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    //Android room 数据库
+    val roomVersion = "2.4.2"
+    implementation ("androidx.room:room-runtime:$rootProject.roomVersion")
+    implementation ("androidx.room:room-ktx:$rootProject.roomVersion")
+    annotationProcessor ("androidx.room:room-compiler:$rootProject.roomVersion")
+    androidTestImplementation ("androidx.room:room-testing:$rootProject.roomVersion")
 }

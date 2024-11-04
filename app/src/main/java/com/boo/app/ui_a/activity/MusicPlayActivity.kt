@@ -1,4 +1,4 @@
-package com.boo.app.music
+package com.boo.app.ui_a.activity
 
 import android.os.Bundle
 import android.util.Log
@@ -8,16 +8,16 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.boo.app.R
 
-class MusicListActivity : AppCompatActivity() {
+class MusicPlayActivity : AppCompatActivity() {
     companion object {
-        private const val TAG = "MusicListActivity"
+        private const val TAG = "MusicPlayActivity"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate: ")
         enableEdgeToEdge()
-        setContentView(R.layout.activity_music_list)
+        setContentView(R.layout.activity_music_play)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)

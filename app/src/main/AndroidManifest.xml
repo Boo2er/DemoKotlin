@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DemoKotlin">
         <activity
-            android:name=".music.MusicListActivity"
+            android:name=".ui_a.activity.MusicListActivity"
             android:exported="false" />
         <activity
-            android:name=".music.MusicPlayActivity"
+            android:name=".ui_a.activity.MusicPlayActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

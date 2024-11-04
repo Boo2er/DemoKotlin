@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--自定义颜色-->
+    <color name="color_uia_opposite">#000000</color>
+    <color name="color_uia_black">#F8F8F8</color>
+    <color name="color_uia_white">#1D1D1D</color>
+    <color name="color_uia_gray">#818384</color>
+    <color name="color_uia_black_trans">#1A000000</color>
+    <color name="color_uia_green">#00CC70</color>
+    <color name="color_uia_red">#ED2828</color>
+    <color name="color_uia_brown">#EF984C</color>
+</resources>
