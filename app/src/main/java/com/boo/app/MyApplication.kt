@@ -2,6 +2,7 @@ package com.boo.app
 
 import android.app.Application
 import android.util.Log
+import com.boo.app.ui_a.db.MusicListControl
 import com.boo.app.utils.SetUtils
 import com.boo.app.utils.SpfUtils
 import com.boo.app.utils.UiUtils
@@ -20,6 +21,8 @@ class MyApplication : Application() {
         Log.d(TAG, "onCreate: ")
         //使用SharedPreferences保存数据需要初始化
         SpfUtils.init(this)
+        //初始化Android Room
+        MusicListControl.getInstance().init(this)
         //初始化UI皮肤
         setSelectUi()
     }

@@ -2,6 +2,8 @@ package com.boo.app.ui_a.activity
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -10,8 +12,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.boo.app.R
 import com.boo.app.ui_a.adapter.MusicListAdapter
 import com.boo.app.ui_a.bean.MusicBean
+import com.boo.app.ui_a.db.MusicListControl
+import com.boo.app.utils.Constants
 
-class MusicListActivity : AppCompatActivity() {
+class MusicListActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: MusicListAdapter
     private lateinit var musicList: List<MusicBean>
@@ -28,13 +32,16 @@ class MusicListActivity : AppCompatActivity() {
         }
         recyclerView = findViewById(R.id.rv_music)
         musicList = ArrayList()
-        adapter = MusicListAdapter(this, musicList)
-        recyclerView.adapter = adapter
+        val btnScan = findViewById<Button>(R.id.btn_scan)
+        btnScan.setOnClickListener(this)
     }
 
     override fun onStart() {
         super.onStart()
         Log.d(TAG, "onStart: ")
+        musicList = MusicListControl.getInstance().getAllMusic(Constants.TEST_PATH)
+        adapter = MusicListAdapter(this, musicList)
+        recyclerView.adapter = adapter
     }
 
     override fun onResume() {
@@ -59,5 +66,13 @@ class MusicListActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "MusicListActivity"
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.btn_scan -> {
+
+            }
+        }
     }
 }

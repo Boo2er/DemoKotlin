@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-kapt")
 }
 
 android {
@@ -40,7 +41,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -50,9 +50,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     //Android room 数据库
-    val roomVersion = "2.4.2"
-    implementation ("androidx.room:room-runtime:$rootProject.roomVersion")
-    implementation ("androidx.room:room-ktx:$rootProject.roomVersion")
-    annotationProcessor ("androidx.room:room-compiler:$rootProject.roomVersion")
-    androidTestImplementation ("androidx.room:room-testing:$rootProject.roomVersion")
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    kapt(libs.androidx.room.compiler)
+    androidTestImplementation(libs.androidx.room.room.testing)
 }
