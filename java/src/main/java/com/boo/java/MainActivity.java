@@ -30,9 +30,44 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         Log.d(TAG, "onStart: ");
+    }
+
+    /**
+     * LeetCode马戏团人塔
+     */
+    private void test1() {
         int[] height = {65, 75, 56, 75, 60, 68};
         int[] weight = {100, 150, 90, 190, 95, 110};
         int a = DefaultUtils.bestSeqAtIndex(height, weight);
-        Log.d(TAG, "onStart: " + a);
+        Log.d(TAG, "test1: " + a);
+    }
+
+    /**
+     * 1.两个线程同时运行；
+     * 2.两个线程同时运，int a = 0 是公共代码；
+     * 3.synchronized关键字修饰；
+     */
+    private void test2() {
+        new Thread(this::test2Test).start();
+        new Thread(this::test2Test).start();
+    }
+
+    /**
+     * i++、++i区别
+     */
+    synchronized private void test2Test() {
+        int a = 0;
+        int b = 0;
+        int c = 0;
+        int d;
+        int e = 0;
+        int f;
+        for (int i = 0; i < 10; i++) {
+            a++;
+            ++b;
+            d = c++;
+            f = ++e;
+            Log.d(TAG, "test2Test: a=" + a + ",b=" + b + ",d=" + d + ",f=" + f);
+        }
     }
 }
