@@ -7,6 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.viewpager.widget.ViewPager;
+
+import com.boo.exercise.adapter.ViewPagerAdapter;
+import com.boo.exercise.fragment.OneFragment;
+import com.boo.exercise.fragment.ThreeFragment;
+import com.boo.exercise.fragment.TwoFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,5 +26,19 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        initViewPager();
+    }
+
+    /**
+     * 初始化ViewPager页面滑动
+     */
+    private void initViewPager() {
+        ViewPager viewPager = findViewById(R.id.viewPager);
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new OneFragment());
+        adapter.addFragment(new TwoFragment());
+        adapter.addFragment(new ThreeFragment());
+        viewPager.setAdapter(adapter);
+        viewPager.setCurrentItem(1);
     }
 }
