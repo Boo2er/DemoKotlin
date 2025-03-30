@@ -48,6 +48,14 @@ public class RecyclerViewListAdapter extends RecyclerView.Adapter<RecyclerViewLi
         notifyItemMoved(fromPosition, toPosition);
     }
 
+    /**
+     * 删除指定位置的数据项
+     */
+    public void onItemDismiss(int position) {
+        dataList.remove(position);
+        notifyItemRemoved(position);
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView tvTitle;
 

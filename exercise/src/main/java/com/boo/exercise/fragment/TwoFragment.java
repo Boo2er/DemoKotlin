@@ -1,6 +1,7 @@
 package com.boo.exercise.fragment;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -40,8 +41,7 @@ public class TwoFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_two, container, false);
     }
 
@@ -114,15 +114,13 @@ public class TwoFragment extends Fragment {
         private final RecyclerViewListAdapter adapter;
 
         public ItemTouchHelperCallback(RecyclerViewListAdapter adapter) {
-            // dragDirs支持上下拖拽，swipeDirs不支持滑动删除
-            super(ItemTouchHelper.UP | ItemTouchHelper.DOWN, 0);
+            // dragDirs支持上下拖拽，swipeDirs支持滑动删除
+            super(ItemTouchHelper.UP | ItemTouchHelper.DOWN, ItemTouchHelper.START | ItemTouchHelper.END);
             this.adapter = adapter;
         }
 
         @Override
-        public boolean onMove(@NonNull RecyclerView recyclerView,
-                              @NonNull RecyclerView.ViewHolder viewHolder,
-                              @NonNull RecyclerView.ViewHolder target) {
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
             int fromPosition = viewHolder.getAdapterPosition();
             int toPosition = target.getAdapterPosition();
             adapter.onItemMove(fromPosition, toPosition);
@@ -131,7 +129,22 @@ public class TwoFragment extends Fragment {
 
         @Override
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-            // 不需要处理滑动删除
+            // 滑动删除逻辑
+            int position = viewHolder.getBindingAdapterPosition();
+            adapter.onItemDismiss(position);
+        }
+
+        /**
+         * 自定义滑动时的视觉效果
+         */
+        @Override
+        public void onChildDraw(@NonNull Canvas canvas, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+            View itemView = viewHolder.itemView;
+            if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
+                float alpha = 1 - Math.abs(dX) / itemView.getWidth();
+                itemView.setAlpha(alpha);
+            }
+            super.onChildDraw(canvas, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
         }
 
         // 可选实现：当拖拽状态改变时调用
