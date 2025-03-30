@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.boo.exercise.R;
 
+import java.util.Collections;
 import java.util.List;
 
 public class RecyclerViewListAdapter extends RecyclerView.Adapter<RecyclerViewListAdapter.ViewHolder> {
@@ -35,6 +36,16 @@ public class RecyclerViewListAdapter extends RecyclerView.Adapter<RecyclerViewLi
     @Override
     public int getItemCount() {
         return dataList.size();
+    }
+
+    /**
+     * 交换数据位置并更新视图
+     */
+    public void onItemMove(int fromPosition, int toPosition) {
+        // 交换数据
+        Collections.swap(dataList, fromPosition, toPosition);
+        // 通知 Adapter 数据移动（带动画）
+        notifyItemMoved(fromPosition, toPosition);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
